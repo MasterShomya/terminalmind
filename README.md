@@ -75,7 +75,7 @@ pip install -r requirements.txt
 ```bash
 pip install -e .
 ```
-
+> Option B is Preferred!
 > With Option B, you can launch the app from **any directory** just by typing `terminalmind`.
 
 ---
