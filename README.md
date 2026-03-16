@@ -21,7 +21,7 @@ TerminalMind lets you skip memorizing commands. Ask *"What's my IP?"* or *"Show 
 ```
 terminalmind/                  ← Project root
 │
-├── .env                       ← API key
+├── .env                       ← Your API key (YOU create this, never committed)
 ├── .gitignore
 ├── README.md
 ├── requirements.txt           ← All dependencies with pinned versions
@@ -47,7 +47,7 @@ terminalmind/                  ← Project root
 ### Step 1 — Clone the repository
 
 ```bash
-git clone https://github.com/your-username/terminalmind.git
+git clone https://github.com/MasterShomya/terminalmind.git
 cd terminalmind
 ```
 
@@ -193,6 +193,43 @@ The full `chat_history` is maintained in memory across every turn so the AI has 
 
 ---
 
+## 🧪 Using the Anomaly Detection Model
+
+The Isolation Forest model used by `run_anomaly_inference` was developed and trained on the **NSL-KDD** intrusion detection dataset, with hyperparameter tuning done via **Optuna**.
+
+### 📓 Kaggle Notebook
+
+The full model development — EDA, preprocessing, training, and evaluation — is documented here:
+
+**[🔗 Intrusion Detection | Isolation Forest & Optuna](https://www.kaggle.com/code/mastershomya/intrusion-detection-isolation-forest-optuna)**
+
+---
+
+### ⬇️ Downloading the Model
+
+1. Open the Kaggle notebook link above
+2. Click the **Output** tab
+3. Find `isolation_forest_model.pkl` and download it
+4. Save it anywhere on your machine
+
+> 💡 **Recommended:** Save the `.pkl` file in a dedicated folder (e.g. `my_model/`). The tool will save `results.csv` in the **same folder as your input CSV**, so keeping your model and test data together makes things tidy.
+
+---
+
+### 🧾 Test Data File
+
+A sample test file — `balanced_test_df.csv` — is included in this repository for you to try the model right away without needing your own data.
+
+**How to use it:**
+1. Run TerminalMind and ask: *"Run anomaly detection on my data"*
+2. When the file dialog opens for the **model**, select your downloaded `isolation_forest_model.pkl`
+3. When the file dialog opens for the **data**, select `balanced_test_df.csv` from the repo
+4. The tool will run inference and save `results.csv` in the same folder as the CSV
+
+
+
+---
+
 ## 💡 Example Interactions
 
 ```
@@ -212,7 +249,7 @@ The full `chat_history` is maintained in memory across every turn so the AI has 
   Please select your .csv data file...    [dialog opens]
   🤖 TerminalMind: Inference complete! results.csv saved to C:\Users\...
 
-› exit
+› exit (press 'ctrl + c' to exit)
   ╔══════════════════════════════╗
   ║ Thanks for using TerminalMind║
   ║ See you next time            ║
@@ -260,8 +297,9 @@ llm = ChatGroq(
 )
 ```
 
-Replace with any model available on your Groq dashboard (e.g. `llama3-70b-8192`, `mixtral-8x7b-32768`).
+Replace with any model available on your Groq dashboard (e.g. `openai/gpt-oss-120`).
 
 ---
+
 
 *Built with ❤️ using Python, LangChain, Groq, and Rich.*
