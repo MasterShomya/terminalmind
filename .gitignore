@@ -1,0 +1,30 @@
+# Python build artifacts
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Bytecode cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables (NEVER commit your API key!)
+.env
+
+# IDEs
+.vscode/
+.idea/
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# ML model output files
+results.csv
+*.pkl
