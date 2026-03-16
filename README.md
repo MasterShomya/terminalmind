@@ -21,7 +21,7 @@ TerminalMind lets you skip memorizing commands. Ask *"What's my IP?"* or *"Show 
 ```
 terminalmind/                  ← Project root
 │
-├── .env                       ← Your API key (YOU create this, never committed)
+├── .env                       ← API key
 ├── .gitignore
 ├── README.md
 ├── requirements.txt           ← All dependencies with pinned versions
